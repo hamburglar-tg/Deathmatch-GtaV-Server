@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <title>auth</title>
+</head>
+    <body>
+    <div class="text-person">
+        <h1 class="text-create-person">СОЗДАНИЕ ПЕРСОНАЖА</h1>
+    </div>
+    <div class="create-person">
+        <div class="chapter">
+            <div class="text-chapter">
+                <h1 class="text-chapter-text">Выберите раздел</h1>
+            </div>
+            <div class="person">
+                <button id="btn-per" class="btn-person"><img class="icon-person" src="photo/person.png"><p class="text-person">Персонаж</p></button>
+            </div>
+            <div class="nsl">
+                <button id="btn-nasl" class="btn-person"><img class="icon-person2" src="photo/dnk.png"><p class="text-person">Наследственность</p></button>
+            </div>
+            <div class="face">
+                <button id="btn-variation" class="btn-person"><img class="icon-person3" src="photo/lico.png"><p class="text-person"> Параметры лица</p></button>
+            </div>
+            <div class="hair">
+                <button class="btn-person"><img class="icon-person4" src="photo/hair.png"><p class="text-person">Волосы</p></button>
+            </div>
+            <div class="clothes">
+                <button id="btn-clothes" class="btn-person"><img class="icon-person5" src="photo/clothes.png"><p class="text-person">Одежда</p></button>
+            </div>
+        </div>
+        <div class="current-menus">
+            <div id="reg-pers-vk" style="display: block;" class="reg-person">
+                <div class="change-name">
+                    <p class="text-person2">Введите никнейм</p>
+                    <input id="change-name-input" class="input-change-name" type="text" placeholder="Введите текст...">
+                    <p style="display: none;" id="reg-error-name" class="errreg">Неверно введен никнейм!</p>
+                </div>
+                <div class="change-year">
+                    <p class="text-person2">Введите возраст</p>
+                    <input id="change-year-input" class="input-change-name" type="text" placeholder="Введите текст...">
+                    <p style="display: none;" id="reg-error-age" class="errreg">Неверно введен возраст!</p>
+                </div>
+                <div class="pol">
+                    <p class="text-person3">Выберите пол</p>
+                    <button onClick="choose('male')" id="btn-pol-men" class="btn2"><p class="text-person4">МУЖСКОЙ</p></button>
+                    <button onClick="choose('female')" id="btn-pol-girl" class="btn3" ><p class="text-person4">ЖЕНСКИЙ</p></button>
+                </div>
+            </div>
+            <div id="switch-pers-id" style="display: none;" class="reg-person">
+                <div class="parrents-images">
+                    <div class="parent-image-box"><img  id="first-p" class="parent-image" src="https://cdn-ra3.ragemp.su/cloud/img/parents/0.png"></div>
+                    <div class="parent-image-box"><img id="second-p" class="parent-image" src="https://cdn-ra3.ragemp.su/cloud/img/parents/21.png"></div>
+                </div>
+                <div class="main-switcher">
+                    <div class="title-parent">
+                        <p class="text-person2">Родитель 1</p>
+                    </div>
+                    
+                </div>
+                <div class="parent-switcher-box">
+                    <div class="switcher-lr">
+                         <div class="div-parent-switcher-button-left" >
+                             <button id="switcher-button-left" class="parent-switcher-button-left" onclick="switchParentFirst(0, 'left')"><p class="text-person4">&lt</p></button>
+                         </div>
+                         <div class="text-pr">
+                             <p class="text-person4" id="fsw">Бенджамин</p>
+                         </div>
+                         
+                         <div class="div-parent-switcher-button-right">
+                             <button id="switcher-button-right" class="parent-switcher-button-right" onclick="switchParentFirst(0, 'right')"><p class="text-person4">&gt</p></button>
+                         </div>
+                            
+                    </div>
+                </div>
+                <div class="main-switcher">
+                    <div class="title-parent">
+                        <p class="text-person2">Родитель 2</p>
+                    </div>
+                    
+                </div>
+                <div class="parent-switcher-box">
+                    <div class="switcher-lr">
+                         <div class="div-parent-switcher-button-left">
+                             <button class="parent-switcher-button-left" onclick="switchParentSecond(0, 'left')"><p class="text-person4">&lt</p></button>
+                         </div>
+                         <div class="text-pr">
+                             <p id="krutoiw" class="text-person4">Ханна</p>
+                         </div>
+                         
+                         <div class="div-parent-switcher-button-right">
+                             <button class="parent-switcher-button-right" onclick="switchParentSecond(0, 'right')"><p class="text-person4">&gt</p></button>
+                         </div>
+                            
+                    </div>
+                </div>
+                <div class="main-switcher">
+                    <p class="text-person2">Схожесть</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="0.0" max="1.0" value="0.5" class="slider" id="myRange1">
+                  
+                </div>
+                <div class="main-switcher">
+                    <p class="text-person2">Цвет кожи</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="0.0" max="1.0" value="0.5" class="slider" id="myRange2">
+                  
+                </div>
+                
+            </div>
+            <div id="switch-variation-id" style="display: none;" class="reg-personn">
+                <div class="main-switcherrr">
+                    <p class="text-person2">Ширина носа</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation1">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Высота носа</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation2">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Длина носа</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation3">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Глубина носа</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation4">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Наконечник носа</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation5">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Смещение переносицы</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation6">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Высота бровей</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation7">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина бровей</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation8">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Высота скул</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation9">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина скул</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation10">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина щек</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation11">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Глаза</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation12">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Губы</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation13">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина челюсти</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation14">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Высота челюсти</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation15">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Длина подбородка</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation16">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Позиция подбородка</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation17">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина подбородка</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation18">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Форма подбородка</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation19">
+                  
+                </div>
+                <div class="main-switcherr">
+                    <p class="text-person2">Ширина шеи</p>
+                </div>
+                <div class="slidecontainer">
+                  <input type="range" step="0.1" min="-1.0" max="1.0" value="0.0" class="slider" id="variation20">
+                  
+                </div>
+                
+            </div>
+            <div id="clothes-switcher-id" style="display: none;" class="reg-person2">
+                <div id="main-switch-clothes" style="display: block;" class="clothes-verh">
+                    <p class="text-person2">Выбор одежды</p>
+                    <div class="btn-clothes">
+                        <button  id="btn-clothes-verh" class="btn6" ><p class="text-person4">ВЕРХ</p></button>
+                    </div>
+                    <div class="btn-clothes">
+                        <button  id="btn-clothes-nogi" class="btn6" ><p class="text-person4">НОГИ</p></button>
+                    </div>
+                    <div class="btn-clothes">
+                        <button  id="btn-clothes-obuv" class="btn6" ><p class="text-person4">ОБУВЬ</p></button>
+                    </div>
+                    
+                </div>
+                <div id="clothes-verh-switch" style="display: none;" class="clothes-verh">
+                    <p class="text-person2">Выбор одежды</p>
+                    <div class="btns-cl">
+                        <div class="btn-clothes">
+                        <button onclick="clothesi(11, 3)" id="btn-niz" class="btn7" ><p class="text-person4"></p></button>
+                        </div>
+                        <div class="btn-clothes">
+                            <button onclick="clothesi(11, 1)" id="btn-niz" class="btn7" ><p class="text-person4"></p></button>
+                        </div>
+                        <div class="btn-clothes">
+                            <button onclick="clothesi(11, 34)" id="btn-niz" class="btn7" ><p class="text-person4"></p></button>
+                        </div>
+                        <div class="btn-clothes">
+                            <button onclick="clothesi(11, 33)" id="btn-niz" class="btn7" ><p class="text-person4"></p></button>
+                        </div>
+                        
+                    </div>
+                    <div class="nzg">
+                        
+                        <button  id="btn-nazad-niz" class="btn6" ><p class="text-person4">Вернуться назад</p></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="crperson-btn">
+        <button  id="btn-create-person" class="btn5" ><p class="text-person4">СОЗДАТЬ</p></button>
+    </div>
+    <script  type="text/javascript">
+        var parentList = [
+            {gtaId: 0, name: 'Бенджамин'},
+            {gtaId: 1, name: 'Даниэль'},
+            {gtaId: 2, name: 'Джошва'},
+            {gtaId: 3, name: 'Ноа'},
+            {gtaId: 4, name: 'Эндрю'},
+            {gtaId: 5, name: 'Джуан'},
+            {gtaId: 6, name: 'Алекс'},
+            {gtaId: 7, name: 'Исаак'},
+            {gtaId: 8, name: 'Иван'},
+            {gtaId: 9, name: 'Итан'},
+            {gtaId: 10, name: 'Винсент'},
+            {gtaId: 11, name: 'Анжел'},
+            {gtaId: 12, name: 'Диего'},
+            {gtaId: 13, name: 'Адриан'},
+            {gtaId: 14, name: 'Габриель'},
+            {gtaId: 15, name: 'Майкл'},
+            {gtaId: 16, name: 'Сантиаго'},
+            {gtaId: 17, name: 'Кевин'},
+            {gtaId: 18, name: 'Луис'},
+            {gtaId: 19, name: 'Самуэль'},
+            {gtaId: 20, name: 'Энтони'},
+            {gtaId: 21, name: 'Ханна'},
+            {gtaId: 22, name: 'Одри'},
+            {gtaId: 23, name: 'Джасмин'},
+            {gtaId: 24, name: 'Джизель'},
+            {gtaId: 25, name: 'Амелия'},
+            {gtaId: 26, name: 'Изабелла'},
+            {gtaId: 27, name: 'Зоя'},
+            {gtaId: 28, name: 'Ава'},
+            {gtaId: 29, name: 'Камила'},
+            {gtaId: 30, name: 'Виолетта'},
+            {gtaId: 31, name: 'София'},
+            {gtaId: 32, name: 'Эвелина'},
+            {gtaId: 33, name: 'Николь'},
+            {gtaId: 34, name: 'Эшли'},
+            {gtaId: 35, name: 'Грейси'},
+            {gtaId: 36, name: 'Брианна'},
+            {gtaId: 37, name: 'Натали'},
+            {gtaId: 38, name: 'Оливия'},
+            {gtaId: 39, name: 'Элизабет'},
+            {gtaId: 40, name: 'Шарлотта'},
+            {gtaId: 41, name: 'Эмма'},
+            {gtaId: 42, name: 'Клод'},
+            {gtaId: 43, name: 'Нико'},
+            {gtaId: 44, name: 'Джон'},
+            {gtaId: 45, name: 'Мисти'},
+        ]
+        var inputfirst = 0.5;
+        var inputsecond = 0.5;  
+        var newIndex;
+        var indexs = 0;
+        var currentFirstParentImage = 0;
+        var newIndexx;
+        var indexss = 0;
+        var setcurrentFirstParentImage = 0;
+        var gender = "male";
+        var componentId = 11;
+        var drawableId = 15;
+        var setcurrentSecondParentImage = 21;
+        
+        var noseWidth = 0.0;
+        var noseHeight = 0.0;
+        var noseLength = 0.0;
+        var noseBridge = 0.0;
+        var noseTip = 0.0;
+        var noseBridgeShift = 0.0;
+        var browHeight = 0.0;
+        var browWidth = 0.0;
+        var cheekboneHeight = 0.0;
+        var cheekboneWidth = 0.0;
+        var cheeksWidth = 0.0;
+        var Eyes = 0.0;
+        var Lips = 0.0;
+        var jawWidth = 0.0;
+        var jawHeight = 0.0;
+        var chinLenght = 0.0;
+        var chinPosition = 0.0;
+        var chinWidth = 0.0;
+        var chinShape = 0.0;
+        var neckWidth = 0.0;
+        
+        function clothesi(id, drawable) {
+            
+            componentId = id;
+            drawableId = drawable;
+            updatePersonCustomization();
+            
+            
+        }
+        function choose(choice){
+            gender = choice;
+            updatePersonCustomization();
+            mp.trigger("CEF:CLIENT::PERSON_CREATE_GENDER_BUTTON_CLICKED",gender)
+        }
+        function switchParentFirst(index, direction){
+            
+           
+
+            if(direction === 'right') {
+                newIndex = indexs += 1;
+                
+            } else {
+                newIndex = indexs -= 1;
+                
+            }
+            
+          
+            var setcurrentFirstParent = parentList[newIndex].name;
+            document.getElementById('fsw').innerHTML = setcurrentFirstParent;
+            
+           
+            setcurrentFirstParentImage = currentFirstParentImage + newIndex;
+            imgf = "https://cdn-ra3.ragemp.su/cloud/img/parents/"+setcurrentFirstParentImage+".png"
+            
+            document.getElementById('first-p').setAttribute('src', imgf);
+            updatePersonCustomization();
+        };
+        
+        
+        var setcurrentSecondParentImage=21;
+        function switchParentSecond(index, direction){
+            
+           
+
+            if(direction === 'right') {
+                newIndexx = indexss += 1;
+                
+            } else {
+                newIndexx = indexss -= 1;
+                
+            }
+            
+           
+           
+           
+            setcurrentSecondParentImage = setcurrentSecondParentImage + newIndexx;
+            imgf = "https://cdn-ra3.ragemp.su/cloud/img/parents/"+setcurrentSecondParentImage+".png"
+            var setcurrentSecondParent = parentList[setcurrentSecondParentImage].name;
+            document.getElementById('krutoiw').innerHTML = setcurrentSecondParent;
+            
+            document.getElementById('second-p').setAttribute('src', imgf);
+            updatePersonCustomization();
+        };
+        
+        var range = document.getElementById('myRange1');
+        range.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            inputfirst = this.value;
+            updatePersonCustomization();
+            
+        }, false);
+        var range2 = document.getElementById('myRange2');
+
+        
+        range2.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            inputsecond = this.value;
+            updatePersonCustomization();
+        }, false);
+        
+        var feature1 = document.getElementById('variation1');
+        feature1.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature2 = document.getElementById('variation2');
+        feature2.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseHeight = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature3 = document.getElementById('variation3');
+        feature3.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseLength = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature4 = document.getElementById('variation4');
+        feature4.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseBridge = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature5 = document.getElementById('variation5');
+        feature5.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseTip = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature6 = document.getElementById('variation6');
+        feature6.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            noseBridgeShift = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature7 = document.getElementById('variation7');
+        feature7.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            browHeight = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature8 = document.getElementById('variation8');
+        feature8.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            browWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature9 = document.getElementById('variation9');
+        feature9.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            cheekboneHeight = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature10 = document.getElementById('variation10');
+        feature10.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            cheekboneWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature11 = document.getElementById('variation11');
+        feature11.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            cheeksWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature12 = document.getElementById('variation12');
+        feature12.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            Eyes = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature13 = document.getElementById('variation13');
+        feature13.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            Lips = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature14 = document.getElementById('variation14');
+        feature14.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            jawWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature15 = document.getElementById('variation15');
+        feature15.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            jawHeight = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature16 = document.getElementById('variation16');
+        feature16.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            chinLenght = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature17 = document.getElementById('variation17');
+        feature17.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            chinPosition = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature18 = document.getElementById('variation18');
+        feature18.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            chinWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature19 = document.getElementById('variation19');
+        feature19.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            chinShape = this.value;
+            updatePersonCustomization();
+        }, false);
+        var feature20 = document.getElementById('variation20');
+        feature20.addEventListener('input', function () {
+            /* Во время движения ползунка */
+            neckWidth = this.value;
+            updatePersonCustomization();
+        }, false);
+        const updatePersonCustomization = () => {
+            const customizationObject = {
+                gender: gender,
+                firstParent: setcurrentFirstParentImage,
+                secondParent: setcurrentSecondParentImage,
+                shape: inputfirst,
+                skin: inputsecond,
+                component: componentId,
+                drawable: drawableId,
+                noseWidth: noseWidth,
+                noseHeight: noseHeight,
+                noseLength: noseLength,
+                noseBridge: noseBridge,
+                noseTip: noseTip,
+                noseBridgeShift: noseBridgeShift,
+                browHeight: browHeight,
+                browWidth: browWidth,
+                cheekboneHeight: cheekboneHeight,
+                cheekboneWidth: cheekboneWidth,
+                cheeksWidth: cheeksWidth,
+                Eyes: Eyes,
+                Lips: Lips,
+                jawWidth: jawWidth,
+                jawHeight: jawHeight,
+                chinLenght: chinLenght,
+                chinPosition: chinPosition,
+                chinWidth: chinWidth,
+                chinShape: chinShape,
+                neckWidth: neckWidth
+            };
+            mp.trigger("CEF:CLIENT::PERSON_CREATE_UPDATE_CUSTOMIZATION", JSON.stringify(customizationObject));
+        }
+    </script>
+    <script src="main.js"></script>
+<style>
+    .nzg{
+        position: absolute;
+        width: 100%;
+        padding-top: 260px;
+        
+    }
+    .btns-cl {
+        
+        display: flex;
+        flex-wrap: wrap;
+        
+        
+        
+    }
+    .btn-clothes{
+        padding-top: 20px;
+    }
+    .btn6 {
+     
+      width: 100%;
+      height: 60px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      
+
+
+    }
+    .btn6:hover {
+      background-color:#ff3d3d;
+      transition: 0.5s;
+      
+     }
+    .btn7 {
+     
+      width: 130px;
+      height: 130px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      margin-right: 18px;
+
+
+    }
+    .btn7:hover {
+      
+      background-color:#ff3d3d;
+      transition: 0.5s;
+      
+     }
+    .clothes-verh {
+        width: 90%;
+            
+        
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 20px;
+        position: relative;
+    }
+    
+    
+    .slidecontainer {
+        width: 80%;
+        height: 40px;
+        margin:0 auto;
+        
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 5px;
+        background: #4a4a4a; 
+        
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #c2c2c2;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+    .text-pr {
+        width: 100%;
+        height: 100%;
+        padding-top: 10px;
+    }
+    .parent-switcher-button-left {
+        width: 50px;
+        height: 40px;
+        background: #3d3d3d;
+        border: none;
+        font-family: Helvetica;
+        border-radius: 10px;
+        
+    }
+    .parent-switcher-button-right {
+        width: 50px;
+        height: 40px;
+        background: #3d3d3d;
+        border: none;
+        font-family: Helvetica;
+        border-radius: 10px;
+       
+    
+    }
+    .parent-switcher-text {
+        font-size: 30px;
+        padding-top: 20px;
+        color: #c2c2c2;
+        font-weight: bold;
+    }
+    .switcher-lr {
+        
+        
+        border-radius: 10px;
+        display: flex;                                 
+        justify-content: space-between;
+        
+        background-color: #4a4a4a; 
+    }
+    .parent-switcher-box{
+        width: 80%;
+        height: 40px;
+        margin:0 auto;
+        padding-top: 10px;
+    }
+    .main-switcher{
+        width: 80%;
+        padding-top: 20px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-switcherr{
+        width: 80%;
+        
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-switcherrr{
+        width: 80%;
+        padding-top: 20px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .parent-image {
+        object-fit:cover;
+        width: 160px;
+        height: 170px; 
+    }
+    .parrents-images{
+        padding-top: 20px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        
+        
+    }
+    .errreg {
+        font-weight: 30px;
+        color: red;
+    }
+    .crperson-btn {
+        width: 100%;
+        text-align: center;
+        
+    }
+    .btn {
+      width: 45%;
+      height: 100px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 9999999s;
+
+    }
+    .btn2 {
+      width: 45%;
+      height: 100px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      margin-top: 30px;
+
+
+    }
+    .btn3 {
+      width: 45%;
+      height: 100px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      margin-top: 30px;
+
+
+    }
+    .btn2:focus {
+      background-color: #ff3d3d;
+     }
+    .btn3:focus {
+     background-color: #ff3d3d;
+    }
+    .input-change-name {
+        padding-left: 20px;
+        font-family: Helvetica;
+        width: 90%;
+        height: 55px;
+        border-radius: 10px;
+        background: rgba(0,0,0,0.25);
+        border: none;
+        margin-top: 5px;
+        color: #dcdcdc;
+        outline: none;
+        font-size: 13px;
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+    .btn5 {
+      width: 400px;
+      height: 60px;
+      background: #3d3d3d;
+      border: none;
+      font-family: Helvetica;
+      border-radius: 10px;
+      
+
+
+    }
+    .btn5:hover {
+      background-color:#ff3d3d;
+      transition: 0.5s;
+      
+      }
+    .icon-person {
+        width: 40px;
+        height: 23px;
+    }
+    .icon-person2 {
+        width: 30px;
+        height: 23px;
+    }
+    .icon-person3 {
+        width: 23px;
+        height: 23px;
+        padding-right: 8px;
+    }
+    .icon-person4 {
+        width: 39px;
+        height: 23px;
+        padding-right: 8px;
+    }
+    .icon-person5 {
+        width: 30px;
+        height: 23px;
+        padding-right: 8px;
+    }
+    .person{
+        padding-top: 60px;
+    }
+
+    .btn-person {
+        display: flex;
+        height: 100px;
+        width: 100%;
+        border: none;
+        background: none;
+        text-align: center;
+        justify-content: center;
+    }
+    .change-name {
+        width: 90%;
+        float: right;
+        padding-top: 30px;
+    }
+    .change-fam {
+        width: 90%;
+        float: right;
+        padding-top: 30px;
+    }
+    .change-year {
+        width: 90%;
+        float: right;
+        padding-top: 30px;
+    }
+    .pol {
+        width: 90%;
+        float: right;
+        padding-top:50px;
+    }
+    .text-person {
+        
+        font-size: 20px;
+        text-align: left;
+        color: #d1d1d1;
+        font-weight: bold;
+        letter-spacing: 1px;
+        
+        
+    }
+    .text-person2 {
+        
+        font-size: 20px;
+        text-align: left;
+        color: #d1d1d1;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-top: 15px;
+        
+        
+    }
+    .text-person3 {
+        
+        font-size: 20px;
+        text-align: left;
+        color: #d1d1d1;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-top: 30px;
+        
+        
+    }
+    .text-person4 {
+        
+        font-size: 15px;
+        text-align:center;
+        color: #d1d1d1;
+        font-weight: bold;
+        letter-spacing: 1px;
+        
+        
+        
+    }
+    .text-person6 {
+        
+        font-size: 15px;
+        text-align:center;
+        color: #d1d1d1;
+        font-weight: bold;
+        letter-spacing: 1px;
+        
+        content: "<";
+        
+    }
+    .text-chapter-text{
+        height: 60px;
+        font-size: 22px;
+        text-align: center;
+        color: #c2c2c2;
+        font-weight: bold;
+        letter-spacing: 2px;
+        padding-top: 40px;
+    }
+    .text-create-person{
+        height: 60px;
+        font-size: 30px;
+        text-align: center;
+        color: #e5e5e5;
+        font-weight: bold;
+        letter-spacing: 7px;
+        padding-top: 20px;
+    }
+    .create-person {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .chapter{
+        
+        float: right;
+        width: 400px;
+        height: 700px;
+        border-radius: 15px;
+        background-color: #212121;
+        margin-left: 150px;
+        margin-top: 70px;
+    }
+    .reg-person {
+        
+        float: left;
+        width: 400px;
+        height: 700px;
+        border-radius: 15px;
+        background-color: #212121;
+        margin-right: 150px;
+        margin-top: 70px;
+    }
+    
+    .reg-personn {
+        
+        float: left;
+        width: 400px;
+        height: 700px;
+        border-radius: 15px;
+        background-color: #212121;
+        margin-right: 150px;
+        margin-top: 70px;
+        overflow: auto;
+    }
+    #switch-variation-id::-webkit-scrollbar {
+        width: 10px;
+        background-color: #212121;
+        border-top-right-radius: 15px;
+        
+    }
+    #switch-variation-id::-webkit-scrollbar-thumb {
+        width: 10px;
+        background-color: #d1d1d1;
+        
+        border-radius: 15px;
+    }
+    .reg-person2 {
+        
+        float: left;
+        width: 400px;
+        height: 330px;
+        border-radius: 15px;
+        background-color: #212121;
+        margin-right: 150px;
+        margin-top: 70px;
+    }
+    .reg-person2 {
+        
+        float: left;
+        width: 400px;
+        height: 330px;
+        border-radius: 15px;
+        background-color: #212121;
+        margin-right: 150px;
+        margin-top: 70px;
+    }
+    
+</style>
+
+    
+    </body>
+</html>

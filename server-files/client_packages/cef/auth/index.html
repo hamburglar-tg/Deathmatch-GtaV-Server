@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <link rel="stylesheet" href="main.css">
+    <title>auth</title>
+  </head>
+  <body>
+    <div class="auth">
+        <div id="wrapper" class="wrapper">
+            <div id="login-div" class="wrap">
+            <p class="p4">IMAGE</p>
+            <p class="p2">Добро пожалвать на сервер.</p>
+            <p class="p">Войдите или зарегистрируйтесь.</p>
+            <p style="display: none;" id="login-error" class="p5">Неверный логин или пароль!</p>
+            <input id="login-login-input" class="input" type="text" placeholder="Введите логин">
+            <p style="display: none;" id="login-error-login" class="p5">Неверно введен логин!</p>
+            <input id="login-password-input" class="input" type="text" placeholder="Введите пароль">
+            <p style="display: none;" id="login-error-pass" class="p5">Неверно введен пароль!</p>
+            <button id="login-button" class="btn"><p class="p3">Войти</p></button>
+            <button id="registraciya" class="btn" onclick="showRegister()"><p class="p3">Регистрация</p></button>
+            <!-- <p id="error" class="p">Забыли пароль?<a class="passa" style="color: #a8a7a7; text-decoration: none" href="#"> Восстановить.</a></p> -->
+        </div>
+
+      
+        <div style="display: none;" id="register-div" class="wrap">
+            <p class="p4">IMAGE</p>
+            <p class="p2">Добро пожаловать на сервер.</p>
+            <p class="p">Войдите или зарегистрируйтесь.</p>
+            <p style="display: none;" id="reg-error2" class="p5">Пользователь с таким socialclabid уже зарегистрирован!</p>
+            <input id="reg-login-input" class="input" type="text" placeholder="Введите логин">
+            <p style="display: none;" id="reg-error-login" class="p5">Неверно введен логин!</p>
+            <input id="reg-email-input" class="input" type="text" placeholder="Введите Email">
+            <p style="display: none;" id="reg-error-email" class="p5">Неверно введен Email!</p>
+            <input id="reg-password-input" class="input" type="text" placeholder="Введите пароль">
+            <p style="display: none;" id="reg-error-pass" class="p5">Неверно введен пароль!</p>
+            <button id="reg-button" class="btn" ><p class="p3">Регистрация</p></button>
+            <button id="voyti" class="btn" onclick="showLogin()"><p class="p3">Отмена</p></button>
+        </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <style>
+.wrapper{
+  width: 600px;
+  height: 540px;
+  
+  margin-top: 170px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #212121;
+}
+.wrapper h1{
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #fff;
+  font-size: 20px;
+  display: inline-block;
+  
+}
+
+.reg-error-login {
+   width: 480px;
+}
+.input{
+  
+  padding-left: 20px;
+  font-family: Helvetica;
+  width: 480px;
+  height: 55px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.25);
+  border: none;
+  margin-top: 5px;
+  color: #dcdcdc;
+  outline: none;
+  font-size: 13px;
+  
+
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.input::placeholder{
+  text-overflow:ellipsis;
+  color: #A8A8A8;
+
+  
+    
+}
+.p4{
+  color: #212121;
+  font-size: 40px;
+  margin-bottom: 140px;    
+}
+#reg-password-input {
+   -webkit-text-security: disc;
+   text-security: disc; 
+}
+#login-password-input {
+   -webkit-text-security: disc;
+   text-security: disc; 
+}
+.btn {
+  width: 240px;
+  height: 60px;
+  background: #3d3d3d;
+  border: none;
+  font-family: Helvetica;
+  border-radius: 10px;
+  margin-top: 30px;
+  
+  
+  
+}
+.btn:hover {
+      background-color:#ff3d3d;
+      transition: 0.5s;
+      
+  }
+
+.btn2{
+  width: 250px;
+  height: 60px;
+  margin-bottom: 5px;
+  margin-left: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+.btn3 {
+  width: 250px;
+  height: 60px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  background: none;
+  border: none;
+  color: #d1d1d1;
+  font-size: 24px;
+  text-decoration: none;
+}
+.p5{
+  width: 480px;
+  font-family: Helvetica;
+  font-size: 14px;
+  color: #ff0000;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding-left: 50px;
+}
+.p3{
+  font-family: Helvetica;
+  font-size: 14px;
+  color: #a8a7a7;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  
+}
+.p2{
+  font-family: Helvetica;
+  font-size: 14px;
+  color: #858181;
+  font-weight: bold;
+    margin-bottom: 3px;
+  text-decoration: none;
+  text-align: center;
+}
+.p{
+  font-family: Helvetica;
+  font-size: 14px;
+  color: #858181;
+  text-decoration: none;
+  padding-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.passa {
+    padding-top: 10px;
+}
+</style>
+
+    
+  </body>
+</html>

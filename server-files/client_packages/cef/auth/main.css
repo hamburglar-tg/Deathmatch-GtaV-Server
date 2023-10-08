@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #242424;
+    
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica;
+}
+.input{
+    background-image: url(fon.jpg);
+    background-repeat: no-repeat;
+    text-indent: 20px;
+}
